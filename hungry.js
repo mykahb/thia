@@ -90,6 +90,14 @@ const meals = {
     Grilled: ["Jerk Chicken", "Grilled Snapper", "BBQ Chicken", "Festival & Fish", "Jerk Pork"]
   },
 
+
+  Turkey: {
+    Savory: ["Lahmacun", "Pide", "Menemen","Manti","Börek"],
+    Grilled: ["Kebab", "", "Kuzu Pirzola", "Köfte"],
+    Hearty: ["Etli Güveç","Karnıyarık","Testi Kebab"]
+    },
+
+
   Trinidad: {
     Spicy: ["Doubles", "Aloo Pie", "Bake & Shark", "Curry Chicken", "Curry Goat"],
     Savory: ["Pelau", "Roti", "Stew Chicken", "Buss Up Shut", "Callaloo"],
