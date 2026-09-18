@@ -93,7 +93,7 @@ const meals = {
 
   Turkey: {
     Savory: ["Lahmacun", "Pide", "Menemen","Manti","Börek"],
-    Grilled: ["Kebab", "", "Kuzu Pirzola", "Köfte"],
+    Grilled: ["Kebab", "Kuzu Pirzola", "Köfte"],
     Hearty: ["Etli Güveç","Karnıyarık","Testi Kebab"]
     },
 
