@@ -90,6 +90,11 @@ const meals = {
     Grilled: ["Jerk Chicken", "Grilled Snapper", "BBQ Chicken", "Festival & Fish", "Jerk Pork"]
   },
 
+  Ethiopia: {
+    Spicy: ["Doro Wat","Sega Wat","Awaze Tibs","Key Wat"],
+    Rich: ["Kitfo","Dulet","Shiro Wat","Alicha Wat"],
+    Vegetarian: ["Etli Güveç","Karnıyarık","Testi Kebab"]
+  },
 
   Turkey: {
     Savory: ["Lahmacun", "Pide", "Menemen","Manti","Börek"],
@@ -190,7 +195,7 @@ const meals = {
 let timerInterval;
 
 function startTimer(callback) {
-  let time = 60;
+  let time = 30;
   const timer = document.getElementById("timer");
   timer.textContent = time;
 
@@ -229,7 +234,7 @@ function renderOptions(title, options, callback) {
 }
 
 function startGame() {
-  renderOptions("Breakfast, Lunch, or Dinner?", ["Breakfast", "Lunch", "Dinner"], chooseMealType);
+  renderOptions("Breakfast, Lunch, or Dinner?", ["Breakfast", "Lunch/Dinner"], chooseMealType);
 }
 
 function chooseMealType(choice) {
