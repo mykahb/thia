@@ -91,10 +91,10 @@ const meals = {
   },
 
   Ethiopia: {
-    Spicy: ["Doro Wat","Sega Wat","Awaze Tibs","Key Wat"],
-    Rich: ["Kitfo","Dulet","Shiro Wat","Alicha Wat"],
-    Vegetarian: ["Etli Güveç","Karnıyarık","Testi Kebab"]
-  },
+  Spicy: ["Doro Wat", "Sega Wat", "Awaze Tibs", "Key Wat", "Zilzil Tibs"],
+  Rich: ["Kitfo", "Dulet", "Alicha Wat", "Yebeg Tibs", "Gored Gored"],
+  Vegetarian: ["Shiro Wat", "Misir Wat", "Gomen", "Atkilt Wat", "Fasolia"]
+},
 
   Turkey: {
     Savory: ["Lahmacun", "Pide", "Menemen","Manti","Börek"],
@@ -185,8 +185,54 @@ const meals = {
     Fresh: ["Pho", "Spring Rolls", "Banh Mi", "Vermicelli Bowl", "Herb Chicken"],
     Light: ["Pho Ga", "Rice Paper Rolls", "Clear Soup", "Steamed Fish", "Light Noodles"],
     Savory: ["Bun Bo Hue", "Com Tam", "Fried Rice", "Caramel Pork", "Garlic Noodles"]
-  }
-};
+  }, 
+
+Ghana: {
+  Spicy: ["Kelewele", "Waakye & Shito", "Chichinga", "Pepper Soup", "Shito & Fried Yam"],
+  Savory: ["Ghana Jollof", "Fufu & Light Soup", "Banku & Tilapia", "Kenkey & Fried Fish", "Omo Tuo"],
+  Stewed: ["Red Red", "Palm Nut Soup", "Groundnut Soup", "Kontomire Stew", "Okra Stew"]
+},
+
+Italy: {
+  Savory: ["Lasagna", "Osso Buco", "Saltimbocca", "Risotto alla Milanese", "Arancini"],
+  Cheesy: ["Margherita Pizza", "Cacio e Pepe", "Eggplant Parmigiana", "Gnocchi Quattro Formaggi", "Calzone"],
+  Herby: ["Pesto Pasta", "Bruschetta", "Rosemary Focaccia", "Porchetta", "Spaghetti Aglio e Olio"]
+},
+
+France: {
+  Rich: ["Boeuf Bourguignon", "Cassoulet", "Duck Confit", "Coq au Vin", "Foie Gras"],
+  Buttery: ["Croissant", "Sole Meunière", "Escargots", "Pommes Purée", "Gratin Dauphinois"],
+  Classic: ["Ratatouille", "French Onion Soup", "Quiche Lorraine", "Croque Monsieur", "Steak Frites"]
+},
+
+Greece: {
+  Fresh: ["Greek Salad", "Tzatziki & Pita", "Grilled Octopus", "Dolmades", "Grilled Sardines"],
+  Savory: ["Moussaka", "Souvlaki", "Gyro", "Pastitsio", "Spanakopita"],
+  Herby: ["Lemon Herb Chicken", "Lamb Kleftiko", "Fasolada", "Briam", "Keftedes"]
+},
+
+Spain: {
+  Savory: ["Paella", "Tortilla Española", "Jamón Ibérico", "Patatas Bravas", "Chorizo al Vino"],
+  Seafood: ["Gambas al Ajillo", "Pulpo a la Gallega", "Paella de Mariscos", "Calamares", "Boquerones"],
+  Comfort: ["Cocido Madrileño", "Fabada Asturiana", "Croquetas", "Albóndigas", "Sopa de Ajo"]
+}};
+
+function validateGameData() {
+  countries.forEach(country => {
+    const flavors = flavorProfiles[country];
+    if (!flavors || flavors.length === 0) {
+      console.warn(`Missing flavorProfiles for ${country}`);
+      return;
+    }
+    flavors.forEach(flavor => {
+      const list = meals[country]?.[flavor];
+      if (!list || list.length === 0) {
+        console.warn(`Missing meals: ${country} → ${flavor}`);
+      }
+    });
+  });
+}
+validateGameData();
 
 // ---------------------------
 // GAME ENGINE
@@ -259,6 +305,16 @@ function finishGame(finalMeal) {
   document.getElementById("game-title").textContent = `Final Choice: ${finalMeal}`;
   document.getElementById("options").innerHTML = "";
   document.getElementById("timer").textContent = "";
+}
+
+function chooseFlavor(flavor) {
+  const options = meals[selectedCountry]?.[flavor];
+  if (!options || options.length === 0) {
+    console.warn(`No meals for ${selectedCountry} → ${flavor}. Please hmu so I can fix it.`);
+    renderOptions("Pick a country:", countries, chooseCountry);
+    return;
+  }
+  renderOptions("Choose your meal:", options, finishGame);
 }
 
 // START GAME
