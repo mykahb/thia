@@ -51,12 +51,11 @@ const countries = [
 
 // ⭐ FIX: store selected country safely
 let selectedCountry = null;
-streetfood="Street Food";
 
 // FLAVOR PROFILES
 const flavorProfiles = {
   Jamaica: ["Spicy", "Savory", "Grilled"],
-  Trinidad: ["Spicy", "Savory", streetfood],
+  Trinidad: ["Spicy", "Savory", "Street Food"],
   Haiti: ["Savory", "Hearty", "Fried"],
   "Dominican Republic": ["Savory", "Comfort", "Fried"],
   Cuba: ["Savory", "Grilled", "Hearty"],
@@ -107,7 +106,7 @@ const meals = {
   Trinidad: {
     Spicy: ["Doubles", "Aloo Pie", "Bake & Shark", "Curry Chicken", "Curry Goat"],
     Savory: ["Pelau", "Roti", "Stew Chicken", "Buss Up Shut", "Callaloo"],
-    streetfood: ["Doubles", "Pholourie", "Saheena", "Corn Soup", "Bake & Shark"]
+    "Street Food": ["Doubles", "Pholourie", "Saheena", "Corn Soup", "Bake & Shark"]
   },
 
   Haiti: {
