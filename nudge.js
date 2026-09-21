@@ -22,7 +22,7 @@ document.getElementById("note-btn").onclick = () => {
 
 document.getElementById("nudge-btn").onclick = () => {
   const msg = document.getElementById("nudge-msg");
-  msg.textContent = "twin tf do you want? lemme come see you";
+  msg.textContent = "hello?? tf do you want? i miss you, lemme come see you";
   msg.classList.add("bounce");
   setTimeout(() => msg.classList.remove("bounce"), 500);
 };
