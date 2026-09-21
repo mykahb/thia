@@ -2,6 +2,8 @@ const notes = [
   "I do miss you incase you're wondering.",
   "Your smile is so contagious, keep showing all 32.",
   "Weirdo. It's cute tho.",
+  "I'm genuinely so proud of you.",
+  "I love you",
   "Hmu anytime.",
   "Hope your day feels gentle today.",
   "You crossed my mind — in a good way.",
